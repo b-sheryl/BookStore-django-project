@@ -10,3 +10,5 @@ def store(request):
         'count':count
     }
     return render(request,'store.html',context)
+
+

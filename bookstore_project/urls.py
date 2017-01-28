@@ -21,6 +21,7 @@ import store
 from store.urls import url
 
 urlpatterns = [
+    url(r'^accounts/',include('registration.backends.default.urls')),
     url(r'^store/',include(store.urls),name='store'),
     url(r'^admin/', admin.site.urls),
 ]
