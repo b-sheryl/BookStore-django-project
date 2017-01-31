@@ -124,5 +124,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Registration
-ACCOUNT_ACTIVATE_DAYS = 7
+ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/store/'
+
+#Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "sherylbernard10@gmail.com"
+EMAIL_PASSWORD = "123098abcd"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
