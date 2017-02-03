@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,7 +132,7 @@ LOGIN_REDIRECT_URL = '/store/'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "sherylbernard10@gmail.com"
-EMAIL_PASSWORD = "123098abcd"
+EMAIL_PASSWORD = "lwknpelrzftwnsvl"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
