@@ -1,1 +1,3 @@
-Collecting wsgi.py
+Django==1.8
+django-registration-redux==1.1
+Pillow==2.9.0
