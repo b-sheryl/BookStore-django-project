@@ -22,6 +22,7 @@ from store.urls import url
 
 urlpatterns = [
     url(r'^accounts/',include('registration.backends.default.urls')),
+    url('',include('social.apps.django_app.urls',namespace='social')),
     url(r'^store/',include(store.urls),name='store'),
     url(r'^admin/', admin.site.urls),
 ]
