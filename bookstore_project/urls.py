@@ -18,11 +18,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 import store
-from store.urls import url
+from store.urls import url,views
+
 
 urlpatterns = [
+    url(r'^$', views.store, name='index'),
     url(r'^accounts/',include('registration.backends.default.urls')),
     url('',include('social.apps.django_app.urls',namespace='social')),
     url(r'^store/',include(store.urls),name='store'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
 ]
