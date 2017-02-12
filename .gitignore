@@ -184,3 +184,6 @@ ENV/
 
 #SQLite Databases 
 *.sqlite3
+
+# Compiled static assets
+static/
