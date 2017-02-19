@@ -34,7 +34,7 @@
 		        <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
 			    <li class="hvr-curl-top-right"><a href="#about">About</a></li>
 			    <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
-				 {% if request.user.authenticated %}<li class="hvr-curl-top-right"><a href="{%url 'cart'%}">Shopping cart </a> </li>{% endif %}
+				 {% if request.user.is_authenticated %}<li class="hvr-curl-top-right"><a href="{%url 'cart'%}">Shopping cart </a> </li>{% endif %}
 		     </ul>
 			 <div class="navbar-form pull-right">
 				{% if request.user.is_authenticated %}
@@ -64,11 +64,11 @@
 				 <span class="storefront_book_title">{{ book.title }}</span>
 				 <span class="storefront_book_author">{{ book.author}}</span>
 			</a>
-
+             {% if request.user.is_authenticated %}
 			 <span class="storefront_add_to_cart">
 				 <a href="{% url 'add_to_cart' book.id%}">[Add to cart]</a>
 			 </span>
-
+             {% endif %}
 			</div>
 		   {% endfor %}
 		 </div>

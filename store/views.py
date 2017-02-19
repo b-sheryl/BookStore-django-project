@@ -1,20 +1,23 @@
 from django.shortcuts import render, redirect
-from .models import Book, BookOrder,Cart
+from .models import Book, BookOrder, Cart
 from django.core.exceptions import ObjectDoesNotExist
 
+
 def index(request):
-    return render(request,'template.html')
+    return render(request, 'template.html')
+
 
 def store(request):
     books = Book.objects.all()
     context = {
-        'books':books
+        'books': books
     }
-    return render(request,'base.html',context)
+    return render(request, 'base.html', context)
 
-def book_details(request,book_id):
+
+def book_details(request, book_id):
     context = {
-        'book' : Book.objects.get(pk=book_id)
+        'book': Book.objects.get(pk=book_id)
     }
     return render(request, 'store/detail.html', context)
 
@@ -55,21 +58,18 @@ def remove_from_cart(request, book_id):
 
 def cart(request):
     if request.user.is_authenticated():
-            cart = Cart.objects.filter(user=request.user.id, active=True)
-            orders = BookOrder.objects.filter(cart=cart)
-            total = 0
-            count = 0
-            for order in orders:
-                total += (order.book.price * order.quantity)
-                count += order.quantity
-            context = {
-                'cart': orders,
-                'total': total,
-                'count': count,
-            }
-            return render(request, 'store/cart.html', context)
+        cart = Cart.objects.filter(user=request.user.id, active=True)
+        orders = BookOrder.objects.filter(cart=cart)
+        total = 0
+        count = 0
+        for order in orders:
+            total += (order.book.price * order.quantity)
+            count += order.quantity
+        context = {
+            'cart': orders,
+            'total': total,
+            'count': count,
+        }
+        return render(request, 'store/cart.html', context)
     else:
         return redirect('index')
-
-
-
