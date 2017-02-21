@@ -6,7 +6,6 @@ from django.core.exceptions import ObjectDoesNotExist
 def index(request):
     return render(request, 'template.html')
 
-
 def store(request):
     books = Book.objects.all()
     context = {
